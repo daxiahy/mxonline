@@ -132,7 +132,7 @@ USE_TZ = False
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILE_DIRS = [os.path.join(BASE_DIR, 'static')]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 # TEMPLATE_DIRS = (os.path.join(BASE_DIR,  'templates'),)
 
@@ -140,7 +140,7 @@ STATICFILE_DIRS = [os.path.join(BASE_DIR, 'static')]
 # You're using the staticfiles app without having set the STATIC_ROOT
 # setting to a filesystem path. Command 'collectstatic' skipped
 # 通过添加以下两条解决上述问题
-PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
-STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
+# PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
+# STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
 
 
