@@ -13,7 +13,7 @@ class UserProfile(AbstractUser):
     gender = models.CharField(choices=(("male", u"男"), ("female", u"女")), default="male", max_length=6)
     adress = models.CharField(max_length=100, default=u"", verbose_name=u"地址")
     moblie = models.CharField(max_length=11, null=True, blank=True, verbose_name=u"手机")
-    image = models.ImageField(upload_to="iamge/%Y/%m", default=u"image/defult.png", max_length=50)
+    image = models.ImageField(upload_to="iamge/%Y/%m", default=u"image/defult.png", max_length=100)
 
     class Meta:
         verbose_name = "用户信息"
@@ -26,13 +26,16 @@ class UserProfile(AbstractUser):
 class EmailVerifyRecord(models.Model):
     code = models.CharField(max_length=20, verbose_name=u"验证码")
     email = models.EmailField(max_length=50, verbose_name=u"邮箱")
-    send_type = models.CharField(max_length=20, choices=(("register", u"注册"), ("forget", u"找回密码")))
+    send_type = models.CharField(max_length=20, verbose_name=u"类型", choices=(("register", u"注册"), ("forget", u"找回密码")))
     # 需要把datetime.now()的括号去掉才会在实例化类时获取时间，而不是程序编译时
     send_time = models.DateTimeField(default=datetime.now, verbose_name=u"添加时间")
 
     class Meta:
         verbose_name = u"邮箱验证码"
         verbose_name_plural = verbose_name
+
+    def __unicode__(self):
+        return '{0}({1})'.format(self.code, self.email)
 
 
 class Banner(models.Model):
