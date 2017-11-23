@@ -15,7 +15,7 @@ class BaseSetting(object):
 class GlobalSettings(object):
     site_title = "后台管理系统"
     site_footer = "墓学在线网"
-    menu_style = "accordoin"
+    menu_style = "accordion"
     
 
 class EmailVerifyRecordAdmin(object):
