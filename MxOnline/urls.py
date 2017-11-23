@@ -15,12 +15,14 @@ Including another URLconf
     3. Add a URL to urlpatterns:  url(r'^blog/', include(blog_urls))
 """
 from django.conf.urls import url
-from django.contrib import admin
 from django.views.generic import TemplateView
 import xadmin
 
+from apps.users.views import user_login
+
 urlpatterns = [
     url(r'^xadmin/', xadmin.site.urls),
-
-    url('^$', TemplateView.as_view(template_name="index.html"), name="index.html"),
+    url('^$', TemplateView.as_view(template_name="index.html"), name="index"),
+    url('^login/$', user_login, name="login"),
+    url('^register/$', TemplateView.as_view(template_name="register.html"), name="register"),
 ]
