@@ -34,6 +34,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='userprofile',
             name='image',
-            field=models.ImageField(default='image/defult.png', max_length=50, upload_to='iamge/%Y/%m'),
+            field=models.ImageField(default='image/defult.png', max_length=50, upload_to='upload/iamge/%Y/%m'),
         ),
     ]

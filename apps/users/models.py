@@ -13,7 +13,7 @@ class UserProfile(AbstractUser):
     gender = models.CharField(choices=(("male", u"男"), ("female", u"女")), default="male", max_length=6)
     adress = models.CharField(max_length=100, default=u"", verbose_name=u"地址")
     moblie = models.CharField(max_length=11, null=True, blank=True, verbose_name=u"手机")
-    image = models.ImageField(upload_to="iamge/%Y/%m", default=u"image/defult.png", max_length=100)
+    image = models.ImageField(upload_to="upload/iamge/%Y/%m", default=u"image/defult.png", max_length=100)
 
     class Meta:
         verbose_name = "用户信息"
@@ -40,7 +40,7 @@ class EmailVerifyRecord(models.Model):
 
 class Banner(models.Model):
     tittle = models.CharField(max_length=100, verbose_name=u"标题")
-    image = models.ImageField(max_length=100, upload_to="banner/%y/%m", verbose_name=u"轮播图")
+    image = models.ImageField(max_length=100, upload_to="upload/banner/%y/%m", verbose_name=u"轮播图")
     url = models.URLField(max_length=200, verbose_name=u"访问地址")
     index = models.IntegerField(default=100, verbose_name=u"顺序")
     add_time = models.DateTimeField(default=datetime.now, verbose_name=u"添加时间")

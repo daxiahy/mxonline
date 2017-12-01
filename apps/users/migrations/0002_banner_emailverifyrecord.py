@@ -18,7 +18,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('tittle', models.CharField(max_length=100, verbose_name='\u6807\u9898')),
-                ('image', models.ImageField(upload_to='banner/%y/%m', verbose_name='\u8f6e\u64ad\u56fe')),
+                ('image', models.ImageField(upload_to='upload/banner/%y/%m', verbose_name='\u8f6e\u64ad\u56fe')),
                 ('url', models.URLField(verbose_name='\u8bbf\u95ee\u5730\u5740')),
                 ('index', models.IntegerField(default=100, verbose_name='\u987a\u5e8f')),
                 ('add_time', models.DateField(default=datetime.datetime.now, verbose_name='\u6dfb\u52a0\u65f6\u95f4')),

@@ -26,7 +26,7 @@ class Migration(migrations.Migration):
                 ('learn_time', models.IntegerField(default=0, verbose_name='\u5b66\u4e60\u65f6\u5e38')),
                 ('students', models.IntegerField(default=0, verbose_name='\u5b66\u4e60\u4eba\u6570')),
                 ('fav_num', models.IntegerField(default=0, verbose_name='\u6536\u85cf\u4eba\u6570')),
-                ('image', models.ImageField(upload_to='courses/%Y/%m', verbose_name='\u8bfe\u7a0b\u56fe\u7247')),
+                ('image', models.ImageField(upload_to='upload/courses/%Y/%m', verbose_name='\u8bfe\u7a0b\u56fe\u7247')),
                 ('click_num', models.IntegerField(default=0, verbose_name='\u70b9\u51fb\u6570')),
                 ('add_time', models.DateTimeField(default=datetime.datetime.now, verbose_name='\u6dfb\u52a0\u65f6\u95f4')),
             ],
