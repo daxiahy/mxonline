@@ -47,7 +47,9 @@ INSTALLED_APPS = (
     'operation',
     'organization',
     'xadmin',
-    'crispy_forms'
+    'crispy_forms',
+    'captcha',
+    'utils'
 )
 AUTH_USER_MODEL = "users.UserProfile"
 
