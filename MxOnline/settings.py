@@ -149,3 +149,9 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 # STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
 
 
+EMAIL_HOST = "smtp.mxhichina.com"
+EMAIL_PORT = "25"
+EMAIL_HOST_USER = "tarimbbs@tarimbbs.cn"
+EMAIL_HOST_PASSWORD = "14789632Hy"
+EMAIL_HOST_TLS = False
+EMAIL_FROM = "tarimbbs@tarimbbs.cn"
