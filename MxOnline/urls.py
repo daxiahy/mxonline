@@ -1,3 +1,4 @@
+# _*_ coding: utf-8 _*_
 """mxonline URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -14,11 +15,16 @@ Including another URLconf
     2. Import the include() function: from django.conf.urls import url, include
     3. Add a URL to urlpatterns:  url(r'^blog/', include(blog_urls))
 """
+
 from django.conf.urls import url, include
 from django.views.generic import TemplateView
+from django.views.static import serve
 import xadmin
 
-from apps.users.views import LoginView, RegisterView,ActiveUserView
+from apps.users.views import LoginView, RegisterView, ActiveUserView, \
+    ForgetPwdView, ResetView, ModifyPwdView
+from apps.organization.views import OrgView
+from settings import MEDIA_ROOT
 
 urlpatterns = [
     url(r'^xadmin/', xadmin.site.urls),
@@ -27,4 +33,13 @@ urlpatterns = [
     url('^register/$', RegisterView.as_view(), name="register"),
     url(r'^captcha/', include('captcha.urls')),
     url(r'^active/(?P<active_code>.*)/$', ActiveUserView.as_view(), name="user_active"),
+    url(r'^reset/(?P<active_code>.*)/$', ResetView.as_view(), name="reset_pwd"),
+    url(r'^forget/$', ForgetPwdView.as_view(), name="forget_pwd"),
+    url(r'^modifypwd/$', ModifyPwdView.as_view(), name="modify_pwd"),
+
+    # 课程机构首页
+    url(r'^org_list/$', OrgView.as_view(), name="org_list"),
+
+    # 处理静态文件,上传文件的访问处理
+    url(r'^media/(?P<path>.*)$', serve, {"document_root": MEDIA_ROOT})
 ]
